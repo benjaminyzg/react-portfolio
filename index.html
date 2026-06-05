@@ -1,24 +1,42 @@
 <script type="text/babel">
+
+    // 1. Create a reusable component for your sub-sections
+    function HeaderSection(props) {
+        return (
+            <div style={{ marginTop: '30px', borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
+                <h2>{props.title}</h2>
+                <h3 style={{ color: '#555' }}>{props.subtitle}</h3>
+                <p>{props.content}</p>
+            </div>
+        );
+    }
+
+    // 2. Use the component inside your main App
     function App() {
         return (
-            <div style={{ textAlign: 'center', marginTop: '40px', fontFamily: 'sans-serif' }}>
+            <div style={{ maxWidth: '800px', margin: '40px auto', fontFamily: 'sans-serif', padding: '0 20px' }}>
                 
-                {/* Main Page Title */}
-                <h1>Welcome to My React App 🚀</h1>
-                <p>This is the main description of the page.</p>
+                <h1>My Dynamic React Page</h1>
+                <p>Managing multiple headers easily using components and props.</p>
 
-                <hr style={{ width: '50%', margin: '30px auto' }} />
+                {/* Reusing the HeaderSection component by passing "props" */}
+                <HeaderSection 
+                    title="Section 1: Getting Started" 
+                    subtitle="Learning the basics of JSX" 
+                    content="JSX allows us to write HTML-like code directly inside our JavaScript."
+                />
 
-                {/* Section 1 */}
-                <h2>Features</h2>
-                <h3>1. Component-Based Architecture</h3>
-                <p>React lets you build encapsulated components that manage their own state.</p>
-                
-                <h3>2. No Build Tools Required</h3>
-                <p>We are running this entire app right inside a single HTML file using CDNs!</p>
+                <HeaderSection 
+                    title="Section 2: Styling" 
+                    subtitle="How to make it look good" 
+                    content="You can use inline styles by passing a JavaScript object to the style attribute."
+                />
 
-                <h2>About This Project</h2>
-                <p>This project is designed to show how quickly you can prototype an idea.</p>
+                <HeaderSection 
+                    title="Section 3: Deployment" 
+                    subtitle="Sharing it with the world" 
+                    content="Once finished, simply commit this index.html to GitHub and turn on GitHub Pages!"
+                />
 
             </div>
         );
