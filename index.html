@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Project Pages</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
-        #content { background: #f9f9f9; padding: 20px; border-radius: 5px; }
-    </style>
-</head>
-<body>
+<script type="text/babel">
+    function App() {
+        return (
+            <div style={{ textAlign: 'center', marginTop: '40px', fontFamily: 'sans-serif' }}>
+                
+                {/* Main Page Title */}
+                <h1>Welcome to My React App 🚀</h1>
+                <p>This is the main description of the page.</p>
 
-    <h1>Project Documentation</h1>
-    <hr>
-    <div id="content">Loading documentation...</div>
+                <hr style={{ width: '50%', margin: '30px auto' }} />
 
-    <script>
-        // Fetch your README.md file (relative path if it's in the same repository folder)
-        fetch('README.md')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(markdownText => {
-                // Convert the Markdown text into HTML and insert it into the div
-                document.getElementById('content').innerHTML = marked.parse(markdownText);
-            })
-            .catch(error => {
-                console.error('Error fetching the README:', error);
-                document.getElementById('content').innerHTML = 'Failed to load documentation.';
-            });
-    </script>
+                {/* Section 1 */}
+                <h2>Features</h2>
+                <h3>1. Component-Based Architecture</h3>
+                <p>React lets you build encapsulated components that manage their own state.</p>
+                
+                <h3>2. No Build Tools Required</h3>
+                <p>We are running this entire app right inside a single HTML file using CDNs!</p>
 
-</body>
-</html>
+                <h2>About This Project</h2>
+                <p>This project is designed to show how quickly you can prototype an idea.</p>
+
+            </div>
+        );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
