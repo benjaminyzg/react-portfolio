@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Benjaminyzg's GitHub Project Repository </title>
+    <title>benjaminyzg's Portfolio Hub</title>
+    
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -13,81 +14,118 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        // --- 1. DEFINE YOUR INDIVIDUAL PAGES ---
 
-        // 1. Reusable component for your major sections
-        function Section({ title, emoji, children }) {
+        function HomePage() {
             return (
-                <div style={{ marginTop: '40px', borderBottom: '1px solid #eee', paddingBottom: '20px' }}>
-                    <h2 style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#333' }}>
-                        <span>{emoji}</span> {title}
-                    </h2>
-                    <div style={{ color: '#444', lineHeight: '1.6', fontSize: '16px' }}>
-                        {children}
+                <div>
+                    <h2>🏠 Welcome & Overview</h2>
+                    <p>Hi there, I'm Benjamin 👋 Welcome to my GitHub profile hub!</p>
+                    <p>I am a passionate developer focused on building innovative, low-latency architectures and utilizing structured CI/CD environments for software delivery.</p>
+                </div>
+            );
+        }
+
+        function ProjectsPage() {
+            return (
+                <div>
+                    <h2>🚀 Projects Portfolio</h2>
+                    <p>This section showcases my engineering work and proprietary software builds.</p>
+                    <div style={{ background: '#f9f9f9', padding: '15px', borderRadius: '5px', marginBottom: '15px' }}>
+                        <h3>🔹 Domain-Specific Machine Learning Models</h3>
+                        <p>Constructing mission-critical applications optimized for high-sensitivity fields with strict low-latency constraints.</p>
                     </div>
                 </div>
             );
         }
 
-        // 2. Main Application
-        function App() {
+        function PublicationsPage() {
             return (
-                <div style={{ maxWidth: '850px', margin: '40px auto', fontFamily: 'system-ui, -apple-system, sans-serif', padding: '0 20px' }}>
+                <div>
+                    <h2>📝 Publications & Research</h2>
+                    <p>Here you will find documentation, academic references, and deep-dives into technical designs.</p>
+                    <ul>
+                        <li><strong>Low-Latency System Architectures (2026):</strong> An analysis of constraint handling under rapid development lifecycles.</li>
+                    </ul>
+                </div>
+            );
+        }
+
+        function TeachingPage() {
+            return (
+                <div>
+                    <h2>🎓 Teaching & Mentorship</h2>
+                    <p>Documentation and training structures created to guide onboarding developers and teams.</p>
+                    <ul>
+                        <li>CI/CD Workflow Operations — Internal standardizations and testing metrics frameworks.</li>
+                    </ul>
+                </div>
+            );
+        }
+
+
+        // --- 2. MAIN APP COMPONENT (Manages Navigation & State) ---
+
+        function App() {
+            // "currentPage" keeps track of which page is active. Defaults to 'home'
+            const [currentPage, setCurrentPage] = React.useState('home');
+
+            // Navigation Button Styling
+            const navLinkStyle = (pageName) => ({
+                padding: '10px 20px',
+                marginRight: '10px',
+                cursor: 'pointer',
+                backgroundColor: currentPage === pageName ? '#0366d6' : '#f6f8fa',
+                color: currentPage === pageName ? '#fff' : '#24292e',
+                border: '1px solid #e1e4e8',
+                borderRadius: '6px',
+                fontWeight: 'bold',
+                transition: 'all 0.2s'
+            });
+
+            // Helper function to decide which sub-page component to render
+            const renderPage = () => {
+                switch(currentPage) {
+                    case 'home': return <HomePage />;
+                    case 'projects': return <ProjectsPage />;
+                    case 'publications': return <PublicationsPage />;
+                    case 'teaching': return <TeachingPage />;
+                    default: return <HomePage />;
+                }
+            };
+
+            return (
+                <div style={{ maxWidth: '850px', margin: '40px auto', fontFamily: 'system-ui, -apple-system, sans-serif', padding: '0 20px', color: '#333' }}>
                     
-                    {/* Updated Main Title */}
-                    <h1 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#111' }}>
-                        Welcome to Benjaminyzg's Github Project Repository
-                    </h1>
-                    <p style={{ fontSize: '1.2rem', color: '#666', marginBottom: '30px' }}>
-                        Hi there, I'm Benjamin 👋 Welcome to my GitHub profile! I'm a passionate developer...
-                    </p>
+                    {/* Header Site Identity */}
+                    <header style={{ marginBottom: '30px' }}>
+                        <h1 style={{ fontSize: '2.2rem', marginBottom: '5px' }}>benjaminyzg's github project repository</h1>
+                        <p style={{ color: '#666', margin: '0' }}>Centralized Documentation Hub</p>
+                    </header>
 
-                    <hr />
+                    {/* Navigation Bar */}
+                    <nav style={{ borderBottom: '2px solid #eaecef', paddingBottom: '15px', marginBottom: '30px' }}>
+                        <button style={navLinkStyle('home')} onClick={() => setCurrentPage('home')}>Overview</button>
+                        <button style={navLinkStyle('projects')} onClick={() => setCurrentPage('projects')}>Projects</button>
+                        <button style={navLinkStyle('publications')} onClick={() => setCurrentPage('publications')}>Publications</button>
+                        <button style={navLinkStyle('teaching')} onClick={() => setCurrentPage('teaching')}>Teaching</button>
+                    </nav>
 
-                    {/* --- PORTFOLIO SECTION --- */}
-                    <Section title="Portfolio" emoji="💼">
-                        <p>An overview of my professional journey, core competencies, and executive summary.</p>
-                        <ul>
-                            <li><strong>Domain Expertise:</strong> Machine Learning, CI/CD pipelines, and secure infrastructure.</li>
-                            <li><strong>Current Focus:</strong> Developing high-sensitivity, low-latency proprietary models.</li>
-                        </ul>
-                    </Section>
+                    {/* Dynamic Page Content Injector */}
+                    <main style={{ minHeight: '300px', lineHeight: '1.6' }}>
+                        {renderPage()}
+                    </main>
 
-                    {/* --- PROJECTS SECTION --- */}
-                    <Section title="Projects" emoji="🚀">
-                        <p>Here are some of the key applications and systems I have conceptualized and built:</p>
-                        <div>
-                            <h3>🔹 Project Name 1</h3>
-                            <p>Description of a specific domain-specific machine learning model you built.</p>
-                            
-                            <h3>🔹 Project Name 2</h3>
-                            <p>Details about a separate codebase or system setup in this repository.</p>
-                        </div>
-                    </Section>
-
-                    {/* --- TEACHING SECTION --- */}
-                    <Section title="Teaching & Mentorship" emoji="🎓">
-                        <p>Sharing knowledge and breaking down complex technical architectures:</p>
-                        <ul>
-                            <li>Workshop / Course Title 1 — Brief description of what you taught.</li>
-                            <li>Technical Documentation — Guides constructed to help onboarding developers.</li>
-                        </ul>
-                    </Section>
-
-                    {/* --- PUBLICATIONS SECTION --- */}
-                    <Section title="Publications" emoji="📝">
-                        <p>Scientific journals, articles, or research whitepapers:</p>
-                        <ol>
-                            <li>
-                                <em>"Title of Your Research or Paper Here"</em> — Published Journal/Conference Name (2026).
-                                <br /><small style={{ color: '#666' }}>Brief summary of the paper's constraints (e.g., time-sensitivity, low-latency analysis).</small>
-                            </li>
-                        </ol>
-                    </Section>
+                    {/* Footer */}
+                    <footer style={{ marginTop: '50px', borderTop: '1px solid #eee', paddingTop: '15px', fontSize: '14px', color: '#888' }}>
+                        © 2026 benjaminyzg. Built seamlessly with React.
+                    </footer>
 
                 </div>
             );
         }
 
+        // Render application to root element
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
