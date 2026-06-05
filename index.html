@@ -1,47 +1,59 @@
-<script type="text/babel">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin's React App</title>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
 
-    // 1. Create a reusable component for your sub-sections
-    function HeaderSection(props) {
-        return (
-            <div style={{ marginTop: '30px', borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
-                <h2>{props.title}</h2>
-                <h3 style={{ color: '#555' }}>{props.subtitle}</h3>
-                <p>{props.content}</p>
-            </div>
-        );
-    }
+    <div id="root"></div>
 
-    // 2. Use the component inside your main App
-    function App() {
-        return (
-            <div style={{ maxWidth: '800px', margin: '40px auto', fontFamily: 'sans-serif', padding: '0 20px' }}>
-                
-                <h1>My Dynamic React Page</h1>
-                <p>Managing multiple headers easily using components and props.</p>
+    <script type="text/babel">
 
-                {/* Reusing the HeaderSection component by passing "props" */}
-                <HeaderSection 
-                    title="Section 1: Getting Started" 
-                    subtitle="Learning the basics of JSX" 
-                    content="JSX allows us to write HTML-like code directly inside our JavaScript."
-                />
+        // 1. Your reusable component
+        function HeaderSection(props) {
+            return (
+                <div style={{ marginTop: '30px', borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
+                    <h2>{props.title}</h2>
+                    <h3 style={{ color: '#555' }}>{props.subtitle}</h3>
+                    <p>{props.content}</p>
+                </div>
+            );
+        }
 
-                <HeaderSection 
-                    title="Section 2: Styling" 
-                    subtitle="How to make it look good" 
-                    content="You can use inline styles by passing a JavaScript object to the style attribute."
-                />
+        // 2. Your main application layout
+        function App() {
+            return (
+                <div style={{ maxWidth: '800px', margin: '40px auto', fontFamily: 'sans-serif', padding: '0 20px' }}>
+                    
+                    <h1>My Dynamic React Page</h1>
+                    <p>Managing multiple headers easily using components and props.</p>
 
-                <HeaderSection 
-                    title="Section 3: Deployment" 
-                    subtitle="Sharing it with the world" 
-                    content="Once finished, simply commit this index.html to GitHub and turn on GitHub Pages!"
-                />
+                    <HeaderSection 
+                        title="Section 1: Getting Started" 
+                        subtitle="Learning the basics of JSX" 
+                        content="JSX allows us to write HTML-like code directly inside our JavaScript."
+                    />
 
-            </div>
-        );
-    }
+                    <HeaderSection 
+                        title="Section 2: Styling" 
+                        subtitle="How to make it look good" 
+                        content="You can use inline styles by passing a JavaScript object to the style attribute."
+                    />
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-</script>
+                </div>
+            );
+        }
+
+        // 3. Connect your React App to the HTML 'root' div
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
+</body>
+</html>
