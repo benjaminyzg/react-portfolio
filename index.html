@@ -86,7 +86,17 @@
                 </div>
             );
         }
-
+        function ContactPage() {
+            return (
+                <div>
+                    <h2>🎓 Contact </h2>
+                    <p>How can you reach out to me</p>
+                    <ul>
+                        <li>CI/CD Workflow Operations — Internal standardizations and testing metrics frameworks.</li>
+                    </ul>
+                </div>
+            );
+        }
 
         // --- 2. MAIN APP COMPONENT (Manages Navigation & State) ---
 
@@ -111,6 +121,7 @@
                     case 'projects': return <ProjectsPage />;
                     case 'publications': return <PublicationsPage />;
                     case 'teaching': return <TeachingPage />;
+                    case 'contact': return <ContactPage/>;
                     default: return <HomePage />;
                 }
             };
@@ -128,6 +139,7 @@
                         <button style={navLinkStyle('projects')} onClick={() => setCurrentPage('projects')}>Projects</button>
                         <button style={navLinkStyle('publications')} onClick={() => setCurrentPage('publications')}>Publications</button>
                         <button style={navLinkStyle('teaching')} onClick={() => setCurrentPage('teaching')}>Teaching</button>
+                        <button style={navLinkStyle('contact')} onClick={() => setCurrentPage('contact')}>Teaching</button>
                     </nav>
 
                     <main style={{ minHeight: '300px', lineHeight: '1.6' }}>
