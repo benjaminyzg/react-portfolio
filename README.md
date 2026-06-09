@@ -15,12 +15,14 @@ I build proprietary, domain-specific machine learning models that are applicatio
 - Express.js; Next.js
 - Spring Boot; Spring IO
 - Ruby by Rails; Django
+- CSS Tailwind; React; Angular
+- Java; SQL; C; C++; 
 
 ## 🚀 About Me
 - 🌱 Currently exploring **AI/ML** and **Blockchain** technologies.
 - 👨‍💻 Working on open-source projects and contributing to the developer community.
 - 🤿 Certified Recreational Scuba Diver (Open Water/Advanced)
-- 🎓 Background in Computer Science and Software Engineering.
+- 🎓 Background in Computer Engineering and Software Engineering.
 - 🏴󠁳󠁬󠁷󠁿 Area of Interest: Medicine; Computer Science; Healthcare; Capital Market
 
 ## 💡 Interests
