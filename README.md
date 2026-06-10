@@ -3,7 +3,7 @@
 Welcome to my GitHub profile! I'm a passionate developer, always eager to learn and build innovative solutions.
 I appreciate the innovate use of simple, clean, aesthetic design - to convey my individualism ideal in a minimalistic manner. 
 
-Any resemblance and similiarities is purely coincidental and unintended.
+Any resemblance and similiarities is purely coincidental and unintended. If you happen to see any similiarities or resemblance, it means that you're a good role model.
 
 ## ℹ️ Overview
 New to GitHub, and I'm trying to figure how to use this platform correctly and appropriate for both work and testing. I believe that this is a tools that is necessary, or basic requirement for a lot of technology companies, particularly in the software development space doing CI/CD development. Some of respository might be configured and inappropriately configured and implemented -> do let me know via email.
