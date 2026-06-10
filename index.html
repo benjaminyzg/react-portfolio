@@ -251,7 +251,7 @@
                 flex: 1,                      // Forces all buttons to take up identical widths
                 whiteSpace: 'nowrap',         // Prevents text like "Publications" from breaking into two lines
                 textAlign: 'center',          // Centers text inside the expanded button
-                flex: '1 1 calc(16% - 10px)', // Tries to fit ~6 items per row evenly
+                flex: '1 1 calc(33.333% - 10px)', // Tries to fit ~6 items per row evenly
                 minWidth: '120px',            // Prevents buttons from squishing too small
                 textAlign: 'center',   
                 padding: '10px 20px',
@@ -280,8 +280,12 @@
             return (
                 <div style={{ maxWidth: '850px', margin: '40px auto', fontFamily: 'system-ui, -apple-system, sans-serif', padding: '0 20px', color: '#333' }}>
                     
+                    <nav style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', borderBottom: '2px solid #eaecef', 
+                        paddingBottom: '15px', marginBottom: '30px'}}>    
+                    </nav>    
+
                     <header style={{ marginBottom: '30px' }}>
-                        <h1 style={{ fontSize: '2.2rem', marginBottom: '5px' }}>benjaminyzg's github project repository</h1>
+                        <h1 style={{ fontSize: '2.2rem', marginBottom: '5px' }}>Benjaminyzg's Github Project Repository</h1>
                         <p style={{ color: '#666', margin: '0' }}>Centralized Documentation Hub</p>
                     </header>
 
