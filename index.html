@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjaminyzg's Portfolio Hub</title>
+    <title>benjaminyzg's Portfolio Hub</title>
     
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -18,7 +18,7 @@
                 <div>
                     <h2>🏠 Welcome & Overview</h2>
                     <p style={{ fontSize: '1.1rem', lineHeight: '1.7' }}>
-                        Hi there, I'm Benjamin 👋 Welcome to my GitHub profile hub! 
+                        Hi there, I'm Benjamin 👋 Welcome to my GitHub Profile Hub! 
                         I am a passionate developer focused on building innovative, low-latency architectures and utilizing structured CI/CD environments for software delivery.
                     </p>
                     
@@ -72,7 +72,7 @@
                         • <strong>Databases:</strong> PostgreSQL, MongoDB, SQLite <br/>
                         • <strong>Cloud:</strong> AWS, GCP; W&B ; HF <br/>
                         • <strong>ML Framework:</strong> Tensorflow; Pytorch; Google Colab <br/>
-                        • <strong>Knowledge-Base/Project Management:</strong> Confluence; Wiki; Trello; Jira <br/>
+                        • <strong>Knowledge-Base Management:</strong> Confluence; Wiki; Trello; Jira <br/>
                     </p>
                     
                     <h2> 🪧 Commercial Collaboration </h2>
@@ -239,7 +239,6 @@
                     </a>
                 </div>
                 </li>
-
             </ul>
             </div>
         );
@@ -249,6 +248,12 @@
             const [currentPage, setCurrentPage] = React.useState('home');
 
             const navLinkStyle = (pageName) => ({
+                flex: 1,                      // Forces all buttons to take up identical widths
+                whiteSpace: 'nowrap',         // Prevents text like "Publications" from breaking into two lines
+                textAlign: 'center',          // Centers text inside the expanded button
+                flex: '1 1 calc(16% - 10px)', // Tries to fit ~6 items per row evenly
+                minWidth: '120px',            // Prevents buttons from squishing too small
+                textAlign: 'center',   
                 padding: '10px 20px',
                 marginRight: '10px',
                 cursor: 'pointer',
@@ -280,7 +285,7 @@
                         <p style={{ color: '#666', margin: '0' }}>Centralized Documentation Hub</p>
                     </header>
 
-                    <nav style={{ borderBottom: '2px solid #eaecef', paddingBottom: '15px', marginBottom: '30px' }}>
+                    <nav style={{ borderBottom: '2px solid #eaecef', gap: '10px', flexWrap: 'wrap', paddingBottom: '15px', marginBottom: '30px' }}>
                         <button style={navLinkStyle('home')} onClick={() => setCurrentPage('home')}>Overview</button>
                         <button style={navLinkStyle('about')} onClick={() => setCurrentPage('about')}>About</button>
                         <button style={navLinkStyle('publications')} onClick={() => setCurrentPage('publications')}>Publications</button>
