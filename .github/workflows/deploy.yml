@@ -29,12 +29,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Removed the cache setting to bypass the path resolution error
 
-      - name: Install and Build
-        run: |
-          pnpm install
-          pnpm run build
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project
+        run: pnpm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -42,7 +42,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './benjaminyzg.github.io/dist' 
+          path: 'benjaminyzg.github.io/dist' 
 
       - name: Deploy to GitHub Pages
         id: deployment
